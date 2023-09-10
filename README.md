@@ -48,7 +48,7 @@ happened in order to handle the errors properly.
             if _, ok := args.(*User); ok {
                 email.SendUserWelcomeEmail(args.(*User))
             } else {
-                return NewInvalidArgError{"EventUserSignedUpSendWelcomeEmail", User{}, args}
+                return gobus.NewInvalidArgError{"EventUserSignedUpSendWelcomeEmail", User{}, args}
             }
         }
 
