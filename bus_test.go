@@ -15,12 +15,12 @@ func (err errFailedToProcessEvent) Error() string {
 	return "Failed to process event"
 }
 
-func printWorld(args *any) error {
+func printWorld(args any) error {
 	fmt.Println("World!")
 	return nil
 }
 
-func sleepAndReturnError(args *any) error {
+func sleepAndReturnError(args any) error {
 	time.Sleep(time.Second * 2)
 	return errFailedToProcessEvent{}
 }
@@ -38,7 +38,7 @@ func TestSetEventFuncs(t *testing.T) {
 	t.Parallel()
 
 	eventName := Event("set-event-funcs")
-	eventFunc := func(args *any) error { return nil }
+	eventFunc := func(args any) error { return nil }
 
 	SetEventFuncs(EventFuncsMap{
 		eventName: []EventFunc{eventFunc},
@@ -79,7 +79,7 @@ func TestEmitAfter(t *testing.T) {
 
 	m := make(map[Event]bool)
 
-	setEventToTrue := func(args *any) error {
+	setEventToTrue := func(args any) error {
 		m[event] = true
 		return nil
 	}
@@ -103,4 +103,12 @@ func TestEmitAfter(t *testing.T) {
 	}
 
 	assert.True(t, val, fmt.Sprintf("map key: %s should be true", event))
+
+	type User struct {
+		ID    int64
+		Email string
+	}
+
+
+
 }

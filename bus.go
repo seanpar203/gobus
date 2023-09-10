@@ -39,7 +39,7 @@ func NewEmitOptions() *emitOptions {
 	}
 }
 
-func Emit(event Event, args *any, opts *emitOptions) error {
+func Emit(event Event, args any, opts *emitOptions) error {
 
 	rw.Lock()
 	fns, ok := b.eventFuncs[event]
@@ -62,7 +62,7 @@ func Emit(event Event, args *any, opts *emitOptions) error {
 		}
 
 		if opts.async {
-			go func(fn EventFunc, args *any, errCh chan<- error) {
+			go func(fn EventFunc, args any, errCh chan<- error) {
 				if opts.wait {
 					defer wg.Done()
 				}

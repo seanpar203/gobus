@@ -4,7 +4,7 @@ package gobus
 type Event string
 
 // Our custom BusFunc
-type EventFunc = func(args *any) error
+type EventFunc = func(args any) error
 
 // Custom type for our map of event funcs
 type EventFuncsMap = map[Event][]EventFunc
