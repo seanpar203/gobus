@@ -1,11 +1,12 @@
 # Gobus
-A bus you didn't know you needed with Go
+A library that makes it easy to execute a distributed sequence of functions when an event gets emitted.
 
-Allows for creating an event like architecture with upfront configuration and clean decoupling of code through events.
+Simplifies creating event based architecture.
 
-Event functions can be run asynchronously or synchronously and the calling function will receive all of the errors that
-happened in order to handle the errors properly.
-
+You can focus on:
+- The input of event handlers
+- Emitting events
+- Handling errors
 
 
 # Simple Usage
@@ -83,3 +84,8 @@ happened in order to handle the errors properly.
             },
 	    })
     ```
+
+
+## Examples
+There's a folder with several examples which can show how this library can be used to create distributed workflows.
+
